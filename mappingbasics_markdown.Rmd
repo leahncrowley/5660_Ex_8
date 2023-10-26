@@ -8,7 +8,7 @@ output:
     toc_float: true
 ---
 
-![](2021-09-29.jpg){width="809"}
+![](pic.png)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-# Simple Maps
+# Simple Map
 
 ```{r Simple Maps, echo=FALSE}
 
@@ -80,9 +80,42 @@ knitr::opts_chunk$set(echo = TRUE)
   
 ```
 
-# Using KMLs or Shapefiles
+# Interactive Leaflet Map
 
-```{r Using KMLs or Shapefiles, include=TRUE}
+```{r Leaflet - Interactive Map, echo=FALSE}
 
+# Read in the data to use:
+  utk.points <- read.csv("utk.csv")
+
+# Make map: 
+  utk.info <- leaflet(utk.points) %>% 
+              addTiles() %>%
+              addCircleMarkers(popup = utk.points$name,
+                   label = utk.points$info,
+                   lng = utk.points$x, 
+                   lat = utk.points$y,
+                   weight = 2,
+                   color = "grey",
+                   fillColor = "orange",
+                   fillOpacity = 0.7)
+
+  utk.info 
+  
+```
+
+# Terrain and Elevation
+
+```{r Leaflet - Terrain and Elevation, include=TRUE}
+
+utk.terrain <- leaflet() %>% 
+  setView(lng = -83.94057172656338, lat = 35.93541535701639, zoom = 15) %>%
+  addWMSTiles("https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WmsServer", layers = "0") %>%
+  addMiniMap(zoomLevelOffset = -4) %>%
+  addScaleBar()
+
+utk.terrain
 
 ```
+
+
+# Something else 
