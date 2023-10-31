@@ -1,14 +1,15 @@
 ---
-title: "Go Vols"
+title: "Happy Vol-o-ween!"
 author: "Leah N. Crowley"
 date: "2023-10-26"
 output:
   html_document:
     toc: true
     toc_float: true
+    toc_depth: 2
 ---
 
-![](pic.png)
+![](volween.webp){width="708"}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -24,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Simple Map
 
-```{r Simple Maps, echo=FALSE}
+```{r Simple Maps, echo=TRUE, message=FALSE, warning=FALSE}
 
 # Load ggplot data using map_data command to begin simple map setup:
   state <- map_data("state")
@@ -82,7 +83,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Interactive Leaflet Map
 
-```{r Leaflet - Interactive Map, echo=FALSE}
+```{r Leaflet - Interactive Map, echo=TRUE, message=FALSE, warning=FALSE}
 
 # Read in the data to use:
   utk.points <- read.csv("utk.csv")
@@ -105,7 +106,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Terrain and Elevation
 
-```{r Leaflet - Terrain and Elevation, include=TRUE}
+```{r Leaflet - Terrain and Elevation, echo=TRUE, message=FALSE, warning=FALSE}
 
 utk.terrain <- leaflet() %>% 
   setView(lng = -83.94057172656338, lat = 35.93541535701639, zoom = 15) %>%
@@ -117,5 +118,15 @@ utk.terrain
 
 ```
 
+# Fun fact:
 
-# Something else 
+The world's largest pumpkin weighs 2,749 and was grown by a man named Gienger... It's called Gienger's Gourd: 
+![](pumpkin.webp) 
+
+You can read about it [here](https://www.smithsonianmag.com/smart-news/minnesota-mans-latest-giant-pumpkin-shatters-world-record-with-2749-pound-gourd-180983045/#:~:text=Weighing%20in%20at%202%2C749%20pounds,Minnesota%20Public%20Radio%20(MPR).)
+
+And here is my favorite pumpkin: 
+![](walt.jpg)
+Here he is working on his map assignment: 
+![](walt1.jpg)
+
